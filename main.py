@@ -206,7 +206,7 @@ if __name__ == "__main__":
     BASE_OUTPUT_DIR = "output_images"
     CSV_FILENAME = "benchmark_results.csv"
     
-    MAX_IMAGES = None  # Adjust as None
+    MAX_IMAGES =100  # Adjust as 100
     BRIGHTNESS_VAL = 40
     WORKER_COUNTS = [1, 2, 4, 8] 
 
@@ -261,7 +261,7 @@ if __name__ == "__main__":
         if w == 1:
             base_time_mp = t_mp
             base_time_cf = t_cf
-        
+        #take the pool with w=1 as the serial baseline
         # Speedup = T_serial / T_parallel
         spd_mp = base_time_mp / t_mp if t_mp > 0 else 0
         spd_cf = base_time_cf / t_cf if t_cf > 0 else 0
